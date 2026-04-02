@@ -1,0 +1,32 @@
+schema_version: "1.0"
+
+extension:
+  id: "ship"
+  name: "Ship Release"
+  version: "1.0.0"
+  description: "Automates release pipeline: pre-flight checks, branch sync, changelog generation, CI verification, and PR creation"
+  author: "arunt14"
+  repository: "https://github.com/arunt14/spec-kit-ship"
+  license: "MIT"
+  homepage: "https://github.com/arunt14/spec-kit-ship"
+
+requires:
+  speckit_version: ">=0.1.0"
+
+provides:
+  commands:
+    - name: "speckit.ship.run"
+      file: "commands/run.md"
+      description: "Automate the complete release engineering workflow"
+
+hooks:
+  after_implement:
+    command: "speckit.ship.run"
+    optional: true
+    prompt: "Ship this feature?"
+    description: "Runs pre-flight checks, syncs branches, generates changelog, and creates PR"
+
+tags:
+  - "process"
+  - "release"
+  - "automation"

@@ -1,0 +1,25 @@
+schema_version: "1.0"
+
+extension:
+  id: "retro"
+  name: "Retrospective"
+  version: "1.0.0"
+  description: "Sprint retrospective analysis with metrics, spec accuracy assessment, and improvement suggestions"
+  author: "arunt14"
+  repository: "https://github.com/arunt14/spec-kit-retro"
+  license: "MIT"
+  homepage: "https://github.com/arunt14/spec-kit-retro"
+
+requires:
+  speckit_version: ">=0.1.0"
+
+provides:
+  commands:
+    - name: "speckit.retro.run"
+      file: "commands/run.md"
+      description: "Conduct a structured retrospective of the completed development cycle"
+
+tags:
+  - "process"
+  - "retrospective"
+  - "metrics"

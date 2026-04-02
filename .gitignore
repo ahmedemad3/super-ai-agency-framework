@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+vendor/
+.venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+target/
+out/
+*.jar
+*.war
+
+# Environment & secrets
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Docker
+docker-compose.override.yml
+
+# Temporary
+tmp/
+temp/
+
+# Coverage reports
+coverage/
+.nyc_output/
+htmlcov/
+
+# Runtime artifacts (generated per project)
+# Uncomment these if you don't want to commit generated artifacts:
+# Artifacts/03_Architecture/research.md
+# Artifacts/04_Database/data-model.md
+# Artifacts/06_Quality_Reports/
+# Artifacts/08_Releases/

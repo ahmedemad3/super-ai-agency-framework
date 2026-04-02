@@ -1,0 +1,36 @@
+installed: []
+settings:
+  auto_execute_hooks: true
+hooks:
+  after_implement:
+  - extension: staff-review
+    command: speckit.staff-review.run
+    enabled: true
+    optional: true
+    prompt: Run staff-level code review?
+    description: Reviews implementation changes against spec for correctness, security,
+      and quality
+    condition: null
+  - extension: ship
+    command: speckit.ship.run
+    enabled: true
+    optional: true
+    prompt: Ship this feature?
+    description: Runs pre-flight checks, syncs branches, generates changelog, and
+      creates PR
+    condition: null
+  - extension: verify
+    command: speckit.verify.run
+    enabled: true
+    optional: true
+    prompt: Run verify to validate implementation against specification?
+    description: Post-implementation verification gate
+    condition: null
+  - extension: retrospective
+    command: speckit.retrospective.analyze
+    enabled: true
+    optional: true
+    prompt: Run retrospective analysis now? (spec changes require explicit confirmation)
+    description: Offer a retrospective after implementation without modifying spec
+      unless approved.
+    condition: null

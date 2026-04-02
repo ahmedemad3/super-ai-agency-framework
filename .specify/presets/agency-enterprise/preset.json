@@ -1,0 +1,20 @@
+{
+  "name": "agency-enterprise",
+  "version": "1.0.0",
+  "description": "Custom preset for the Super AI Agency Framework. Maps Spec-Kit terminology to Agency artifact structure.",
+  "author": "Super AI Agency",
+  "priority": 100,
+  "overrides": {
+    "spec_output_dir": "Artifacts/02_Specs",
+    "plan_output_dir": "Artifacts/03_Architecture",
+    "tasks_output_dir": "Artifacts/05_Planning",
+    "constitution_path": "Artifacts/00_Governance/CONSTITUTION.md"
+  },
+  "terminology": {
+    "specification": "Business Requirements Document (BRD)",
+    "plan": "Software Architecture Document (SAD)",
+    "tasks": "Sprint Backlog",
+    "implement": "Execute Ticket (TDD)",
+    "constitution": "Project Constitution"
+  }
+}
