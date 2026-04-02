@@ -14,12 +14,15 @@
 - [What is This?](#-what-is-this)
 - [The 8-Phase Workflow](#-the-8-phase-workflow)
 - [Get Started](#-get-started)
+- [Complete Step-by-Step Workflow](#-complete-step-by-step-workflow)
 - [AI Agent Roster](#-ai-agent-roster)
 - [Slash Commands](#-slash-commands)
 - [Project Structure](#-project-structure)
 - [Constitution & Governance](#-constitution--governance)
 - [Spec-Kit Extensions](#-spec-kit-extensions)
+- [Extension Integration Guide](#-extension-integration-guide)
 - [Bridge Script](#-bridge-script)
+- [Emergency Recovery](#-emergency-recovery)
 - [Extending the Framework](#-extending-the-framework)
 - [Compatibility](#-compatibility)
 - [Contributing](#contributing)
@@ -133,6 +136,111 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 2. Say: **"Start project"** or **`/speckit-init`**
 3. The Orchestrator detects no artifacts → begins Phase 0
 4. Follow the prompts through each phase
+
+---
+
+## 📋 Complete Step-by-Step Workflow
+
+> **Treat this framework as a managed engineering organization — you are the CEO, the AI is the Agency.**
+
+### Phase 0: Initialize
+| Step | Command | Output | Gate |
+|------|---------|--------|------|
+| 0.1 | `/speckit-init` | Folder structure + Constitution loaded | "Workspace ready. What is your project idea?" |
+
+### Phase 1: Specify (Strategy + Requirements)
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 1.1 | `/speckit.specify` | Product Manager | `Artifacts/01_Strategy/STRATEGY.md` | ⛔ Review Vision, MVP Scope, Success Metrics |
+| 1.2 | *(auto-chains)* | Business Analyst | `Artifacts/02_Specs/BRD.md` | ⛔ Review User Stories + Gherkin scenarios |
+
+**Before approving**: Does every story have `Given/When/Then`? Are NFRs specific numbers?
+
+### Phase 1b: Clarify
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 1.3 | `/speckit-clarify` | Business Analyst | `## Clarifications` appended to BRD.md | ⛔ Answer ALL questions with specific values |
+
+> **Always run this** — even if the BRD looks complete. It catches hidden assumptions.
+
+🔗 **Bridge Sync**: `.\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature"`
+
+### Phase 2: Plan (Architecture + Database + API)
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 2.1 | `/speckit.plan` | Solution Architect | `SAD.md` + `research.md` | ⛔ Review C4 diagrams, tech stack |
+| 2.2 | *(auto)* | Database Architect | `SCHEMA.sql` + `SEED_DATA.sql` + `data-model.md` | ⛔ Review normalization, indexes |
+| 2.3 | *(auto)* | Java/Node Developer | `PHASE_[X]_API.yaml` | ⛔ Review endpoint design, DTOs |
+
+> **⚠️ Step 2.3 is often missed** — The API design is a *separate* step from architecture. The developer persona designs the OpenAPI contract — no implementation code yet.
+
+🔗 **Bridge Sync**: Run bridge script after this phase.
+
+### Phase 2b: Analyze (Cross-Artifact Consistency)
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 2.4 | `/speckit-analyze` | Tech Lead | `CROSS_ARTIFACT_CONSISTENCY.md` | ⛔ **BLOCKER** if critical inconsistencies |
+
+**Checks**: BRD ↔ API mapping, Schema ↔ DTOs, SAD feasibility, naming consistency.
+
+### Phase 3: Tasks (Sprint Planning)
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 3.1 | `/speckit.tasks` | Project Manager | `MASTER_PLAN.md` (multi-sprint overview) | ⛔ Verify MVP = Sprint 1 |
+| 3.2 | `"Plan Sprint 1"` | Project Manager | `SPRINT_1_BACKLOG.md` (ticket details) | ⛔ Review dependencies, `[P]` markers |
+
+> **Two separate artifacts**: `MASTER_PLAN.md` is the overall roadmap. `SPRINT_[X]_BACKLOG.md` is the per-sprint ticket list.
+
+🔗 **Bridge Sync + Optional**: `/speckit.taskstoissues` to push to GitHub Issues.
+
+### Phase 4: Implement (TDD Loop — Per Ticket)
+
+**Repeat for EACH ticket in Sprint Backlog:**
+
+| Step | Command | Persona | Output |
+|------|---------|---------|--------|
+| 4.1 | `/speckit.implement [TicketID]` | QA Engineer | `TEST_CASES_[TicketID].md` (tests written FIRST) |
+| 4.2 | *(FE tickets only)* | Frontend Dev | ⛔ "Provide design reference (image/link)" |
+| 4.3 | *(auto)* | Frontend/Backend Dev | Source code implementation |
+| 4.4 | *(auto)* | QA Engineer | Test execution: PASS/FAIL |
+
+> **Tests are written BEFORE code** (Shift-Left TDD). Step 4.2 is a human gate for frontend tickets.
+
+### Phase 5: Review (Code Quality Gate — Per Ticket)
+| Step | Command | Persona | Output | Decision |
+|------|---------|---------|--------|----------|
+| 5.1 | `/speckit-commit` | Tech Lead | `REVIEW_[TicketID].md` (7-Lens audit) | **APPROVED** → Commit / **REQUEST_CHANGES** → Back to Phase 4 |
+| 5.2 | *(auto)* | QA Engineer | Re-executes test cases | PASS → Continue / FAIL → Back to Phase 4 |
+
+**7-Lens Review**: Architecture · Security · Resilience · Observability · Performance · Test Quality · Maintainability
+
+🔗 **Optional**: `/speckit.verify.run` (quality gate) · `/speckit.staff-review.run` (staff-level review)
+
+### Phase 6: Deploy (Staging)
+| Step | Command | Persona | Output |
+|------|---------|---------|--------|
+| 6.1 | `/speckit-deploy` | DevOps Engineer | `Dockerfile`, `docker-compose.yml`, CI/CD pipeline |
+| 6.2 | *(auto)* | DevOps Engineer | Trivy scan — ⛔ **BLOCKER**: 0 Critical/High CVEs |
+| 6.3 | *(auto)* | DevOps Engineer | `DEPLOYMENT_LOG.md` |
+
+### Phase 7: Ship (Production)
+| Step | Command | Persona | Output | Gate |
+|------|---------|---------|--------|------|
+| 7.1 | `/speckit-ship` | QA Engineer | `REGRESSION_SPRINT_[X].md` | ⛔ **BLOCKER**: ANY test fails → back to Phase 4 |
+| 7.2 | *(auto)* | Tech Lead | `SPRINT_[X]_HANDOVER.md` + CHANGELOG | ⛔ Review handover doc |
+| 7.3 | *(user approval)* | — | — | ⛔ "Approve production deployment?" |
+| 7.4 | *(auto)* | DevOps Engineer | Production deploy (Blue/Green) | Monitor error rates |
+
+🔗 **Optional**: `/speckit.reconcile.run` · `/speckit.retrospective.analyze` · `/speckit.retro.run` · `/speckit.ship.run`
+
+### Multi-Sprint Loop
+
+After Ship, if `MASTER_PLAN.md` has more sprints:
+```
+→ Go back to Phase 3: "Plan Sprint [X+1]"
+→ Repeat Phase 4 → 5 → 6 → 7
+→ Continue until all sprints shipped
+```
 
 ---
 
@@ -298,9 +406,26 @@ specify extension list
 
 ---
 
+## 📡 Extension Integration Guide
+
+Extensions are **not auto-triggered** by the Orchestrator — call them manually at these points:
+
+| Extension | When to Call | Phase |
+|-----------|-------------|-------|
+| `/speckit.verify.run` | After Phase 4 (Implement), before Phase 5 (Review) | Between Implement → Review |
+| `/speckit.staff-review.run` | After Phase 5, for critical or high-risk tickets | During Review |
+| `/speckit.reconcile.run` | After Phase 7, if implementation diverged from spec | After Ship |
+| `/speckit.retrospective.analyze` | After each sprint ships, for spec adherence scoring | After Ship |
+| `/speckit.retro.run` | End of each sprint cycle, for improvement planning | After Ship |
+| `/speckit.ship.run` | To automate PR creation and changelog generation | During Ship |
+
+---
+
 ## 🔗 Bridge Script
 
-The `spec-kit-bridge.ps1` script syncs `Artifacts/` (Agency source of truth) to `.specify/specs/` (Spec-Kit CLI compatibility):
+The `spec-kit-bridge.ps1` script syncs `Artifacts/` (Agency source of truth) to `.specify/specs/` (Spec-Kit CLI compatibility).
+
+**When to run**: After Phase 1b (Clarify), Phase 2 (Plan), and Phase 3 (Tasks).
 
 ```powershell
 # Dry run (preview what would be synced)
@@ -309,6 +434,23 @@ The `spec-kit-bridge.ps1` script syncs `Artifacts/` (Agency source of truth) to 
 # Live sync
 .\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature"
 ```
+
+---
+
+## 🚨 Emergency Recovery
+
+When the AI drifts off-workflow, use these rescue commands:
+
+| Problem | Fix |
+|---------|-----|
+| **AI jumps phases** | `"STOP. Check ARTIFACT_MAP.md. We are missing [artifact]. Run [command]."` |
+| **Workflow loops** | Run `/speckit-init` to reset state detection |
+| **Persona identity crisis** | `"You are [Persona]. Load Phase [X] protocol from your SKILL.md."` |
+| **Context window overflow** | Start new conversation → paste last `<status_update>` block → run `/speckit-init` |
+| **Artifact exists but low quality** | Run `/speckit.checklist` to validate, then ask persona to regenerate |
+| **Need full state report** | `"@team-orchestrator, full state check. Read Artifacts/, compare to ARTIFACT_MAP.md. Report only, no action."` |
+| **AI says LGTM without details** | `"PROTOCOL VIOLATION. Constitution requires 7-Lens tabular report. Re-run the review."` |
+| **Tests written after code** | `"PROTOCOL VIOLATION. QA writes tests first. Run Step 4.1 for [TicketID]."` |
 
 ---
 
