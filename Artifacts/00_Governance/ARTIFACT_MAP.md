@@ -29,6 +29,8 @@
 | 18 | `sprint_dev_backend.md` | `Artifacts/07_API_Specs/` | No equivalent | — | Agency only |
 | 19 | `SPRINT_[X]_HANDOVER.md` | `Artifacts/08_Releases/` | Via `spec-kit-ship` extension | — | Agency only |
 | 20 | `DEPLOYMENT_LOG.md` | `Artifacts/08_Releases/` | No equivalent | — | Agency only |
+| 21 | `SPRINT_[X]_WALKTHROUGH.md` | `Artifacts/05_Planning/sprint_[X]/` | No equivalent | — | Agency only |
+| 22 | `SPRINT_[X]_QUALITY_POLISH_VERIFICATION.md` | `Artifacts/06_Quality_Reports/` | No equivalent | — | Agency only |
 
 ---
 

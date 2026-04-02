@@ -82,6 +82,7 @@
 - `/speckit.checklist` MUST pass before any phase transition.
 - Each artifact MUST be saved to its designated path in `Artifacts/` before proceeding.
 - The agent MUST end each phase with a handoff message to `@team-orchestrator`.
+- **Sprint Completion**: After each sprint, a **Resolved Walkthrough** (`SPRINT_X_WALKTHROUGH.md`) MUST be saved in `Artifacts/05_Planning/sprint_x/` and a **Quality & Verification Report** (`SPRINT_X_QUALITY_POLISH_VERIFICATION.md`) MUST be created in `Artifacts/06_Quality_Reports/`.
 
 ---
 

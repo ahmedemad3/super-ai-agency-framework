@@ -2,7 +2,7 @@
 description: Run structured clarification to resolve ambiguities in specifications before planning
 ---
 
-# /speckit.clarify — Structured Specification Clarification
+# /speckit-clarify — Structured Specification Clarification
 
 ## Prerequisites
 - `Artifacts/02_Specs/BRD.md` must exist
@@ -27,4 +27,11 @@ description: Run structured clarification to resolve ambiguities in specificatio
 
 5. Run `/speckit.checklist` against the updated BRD.md to verify completeness.
 
-6. Report: *"Clarifications recorded. BRD.md updated. Ready for `/speckit.plan`."*
+6. Run bridge sync:
+   ```
+   .\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "[feature-name]"
+   ```
+
+7. Report: *"Clarifications recorded. BRD.md updated. Bridge synced. Ready for `/speckit.plan`. @team-orchestrator, Phase 1b complete."*
+
+> **Note**: The Orchestrator should auto-trigger `/speckit-clarify` if BRD.md exists but has no `## Clarifications` section.

@@ -230,6 +230,7 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 | 7.2 | *(auto)* | Tech Lead | `SPRINT_[X]_HANDOVER.md` + CHANGELOG | ⛔ Review handover doc |
 | 7.3 | *(user approval)* | — | — | ⛔ "Approve production deployment?" |
 | 7.4 | *(auto)* | DevOps Engineer | Production deploy (Blue/Green) | Monitor error rates |
+| 7.5 | *(auto)* | Tech Lead | `SPRINT_[X]_WALKTHROUGH.md` + `SPRINT_[X]_QUALITY_POLISH_VERIFICATION.md` | Save sprint completion artifacts |
 
 🔗 **Optional**: `/speckit.reconcile.run` · `/speckit.retrospective.analyze` · `/speckit.retro.run` · `/speckit.ship.run`
 
@@ -241,6 +242,12 @@ After Ship, if `MASTER_PLAN.md` has more sprints:
 → Repeat Phase 4 → 5 → 6 → 7
 → Continue until all sprints shipped
 ```
+
+#### 🔄 Multi-Sprint Edge Cases
+- **API evolution**: If a later sprint introduces new endpoints, update `PHASE_[X]_API.yaml` during that sprint's Phase 4.
+- **Architectural changes**: If a later sprint adds a major component (e.g., Elasticsearch), re-run `/speckit.plan` and `/speckit-analyze` before Phase 4.
+- **Test Suite Growth**: By Sprint 10, regression tests may exceed context limits. Use "critical path regression" for later sprints.
+- **Bridge Sync Scheduled**: Always run `spec-kit-bridge.ps1` after Phase 1b, Phase 2, Phase 3, AND at the end of Phase 7 to sync test cases and deliverables.
 
 ---
 
