@@ -1,36 +1,58 @@
-installed: []
+installed:
+  - name: learn
+    version: "1.1.0"
+    source: https://github.com/imviancagrace/spec-kit-learn/archive/refs/tags/v1.1.0.zip
+    enabled: true
 settings:
   auto_execute_hooks: true
 hooks:
+  after_plan:
+  - extension: learn
+    command: speckit.learn.diagrams
+    enabled: true
+    optional: false
+    prompt: null
+    description: "MANDATORY: Generate visual architecture diagrams (Component, System Design, Software Architecture) with MermaidJS after every plan. Auto-runs after /speckit.plan."
+    condition: null
+
   after_implement:
-  - extension: staff-review
-    command: speckit.staff-review.run
+  - extension: learn
+    command: speckit.learn.review
     enabled: true
-    optional: true
-    prompt: Run staff-level code review?
-    description: Reviews implementation changes against spec for correctness, security,
-      and quality
+    optional: false
+    prompt: null
+    description: "MANDATORY: Generate educational learn.md guide after every implementation. Key Decisions, Concepts to Know, Architecture Overview, Glossary. Auto-runs after /speckit.implement."
     condition: null
-  - extension: ship
-    command: speckit.ship.run
-    enabled: true
-    optional: true
-    prompt: Ship this feature?
-    description: Runs pre-flight checks, syncs branches, generates changelog, and
-      creates PR
-    condition: null
+
   - extension: verify
     command: speckit.verify.run
     enabled: true
-    optional: true
-    prompt: Run verify to validate implementation against specification?
-    description: Post-implementation verification gate
+    optional: false
+    prompt: null
+    description: "MANDATORY (Constitution §2): Post-implementation verification gate — validates implementation vs spec/plan/tasks/constitution. CRITICAL findings block Phase 5 (Review). Auto-runs after /speckit.implement."
     condition: null
+
+  - extension: staff-review
+    command: speckit.staff-review.run
+    enabled: true
+    optional: false
+    prompt: null
+    description: "MANDATORY: Staff-level 5-pass code review (Correctness, Security, Performance, Spec Compliance, Test Quality). Blocker findings prevent commit. Auto-runs before /speckit.commit."
+    condition: null
+
+  after_ship:
+  - extension: ship
+    command: speckit.ship.run
+    enabled: true
+    optional: false
+    prompt: null
+    description: "MANDATORY: PR creation with full artifact traceability, changelog generation, and CI verification via gh CLI. Auto-runs after production deployment confirmed."
+    condition: null
+
   - extension: retrospective
     command: speckit.retrospective.analyze
     enabled: true
-    optional: true
-    prompt: Run retrospective analysis now? (spec changes require explicit confirmation)
-    description: Offer a retrospective after implementation without modifying spec
-      unless approved.
+    optional: false
+    prompt: null
+    description: "MANDATORY (Phase 8): Quantitative spec adherence scoring and deviation analysis after every sprint ship. Feeds constitution update recommendations."
     condition: null

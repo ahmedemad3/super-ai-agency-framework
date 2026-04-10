@@ -1,19 +1,25 @@
-# Super AI Agency Framework
+﻿# Super AI Agency Framework
 
-> 🚀 A persona-driven AI development framework that merges **13 expert AI agents** with **GitHub Spec-Kit v0.4.4** to deliver a structured, gated, spec-driven development workflow.
+> 🚀 A persona-driven AI development framework that merges **13 expert AI agents** with **GitHub Spec-Kit v0.4.4** and **spec-kit-learn v1.1.0** to deliver a structured, gated, spec-driven development workflow from strategy to production with a full post-ship learning loop.
 
+[![Version](https://img.shields.io/badge/Version-v2.0-brightgreen)](CHANGELOG.md)
 [![GitHub Spec-Kit](https://img.shields.io/badge/Spec--Kit-v0.4.4-blue)](https://github.com/github/spec-kit)
+[![spec-kit-learn](https://img.shields.io/badge/spec--kit--learn-v1.1.0-blueviolet)](https://github.com/imviancagrace/spec-kit-learn)
+[![Constitution](https://img.shields.io/badge/Constitution-v2.0-red)](Artifacts/00_Governance/CONSTITUTION.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-13-orange)](.agent/skills/)
-[![Workflows](https://img.shields.io/badge/Workflows-6-purple)](.agent/workflows/)
+[![Phases](https://img.shields.io/badge/Phases-9-purple)](SIMULATION_GUIDE.md)
 
 ---
 
 ## Table of Contents
 
 - [What is This?](#-what-is-this)
-- [The 8-Phase Workflow](#-the-8-phase-workflow)
+- [🆕 What's New in v2.0](#-whats-new-in-v20)
+- [The 9-Phase Workflow](#-the-9-phase-workflow)
+- [🗺️ Workflow Diagram](#-workflow-diagram)
 - [Get Started](#-get-started)
+- [Simulation Guide](#-simulation-guide)
 - [Complete Step-by-Step Workflow](#-complete-step-by-step-workflow)
 - [AI Agent Roster](#-ai-agent-roster)
 - [Slash Commands](#-slash-commands)
@@ -32,39 +38,209 @@
 
 ## 🤔 What is This?
 
-The Super AI Agency Framework is a **complete AI-powered software development team** that follows a strict, gated workflow. Instead of vibe-coding, every feature goes through 8 mandatory phases — from strategy to production — with specialized AI personas responsible for each phase.
+The Super AI Agency Framework is a **complete AI-powered software development team** that follows a strict, gated, 9-phase workflow. Instead of vibe-coding, every feature goes through mandatory phases — from strategy to production and post-ship learning — with specialized AI personas responsible for each phase.
 
 ### Why Not Just Use Spec-Kit or Copilot Alone?
 
-| Feature | Spec-Kit Alone | Copilot/Agent Alone | **Super AI Agency** |
+| Feature | Spec-Kit Alone | Copilot/Agent Alone | **Super AI Agency v2** |
 |---------|:-:|:-:|:-:|
 | Structured spec-driven workflow | ✅ | ❌ | ✅ |
 | Specialized AI personas | ❌ | ❌ | ✅ 13 experts |
 | Gated phase transitions | ❌ | ❌ | ✅ User approval |
-| 7-Lens code review | ❌ | ❌ | ✅ Tech Lead |
-| Test-first development | Partial | ❌ | ✅ QA → Dev |
+| 7-Lens + 5-pass code review | ❌ | ❌ | ✅ Dual review |
+| Test-first development (mandatory) | Partial | ❌ | ✅ Constitutionally enforced |
 | Production deployment pipeline | ❌ | ❌ | ✅ DevOps |
-| Cross-artifact consistency | ✅ | ❌ | ✅ Enhanced |
-| Constitution enforcement | ✅ | ❌ | ✅ Per-protocol |
+| Cross-artifact consistency (5 artifacts) | Partial | ❌ | ✅ Dual-track |
+| Constitution enforcement | ✅ | ❌ | ✅ XML per-protocol |
+| Automatic bridge sync | ❌ | ❌ | ✅ Every approval |
+| Educational learning guides | ❌ | ❌ | ✅ spec-kit-learn |
+| Visual architecture diagrams | ❌ | ❌ | ✅ Auto-generated |
+| Post-ship retrospective loop | ❌ | ❌ | ✅ Mandatory Phase 8 |
+| Git sprint branching | ❌ | ❌ | ✅ Per sprint |
+| Constitution self-improvement | ❌ | ❌ | ✅ Retro-driven |
 
 ---
 
-## 🌟 The 8-Phase Workflow
+## 🆕 What's New in v2.0
+
+> Addressing all gaps identified in the Agency + Spec-Kit integration analysis.
+
+### 🔴 Critical Gaps Fixed
+
+| # | Gap Fixed | How |
+|---|-----------|-----|
+| G-01 | Bridge sync after STRATEGY.md | Now **automatic** in Orchestrator `<on_approval>` tag |
+| G-02 | Bridge sync after BRD.md | Now **automatic** in Orchestrator `<on_approval>` tag |
+| G-03 | Bridge sync after SAD.md | Now **automatic** in Orchestrator `<on_approval>` tag |
+| G-04 | Bridge sync after SCHEMA.sql | Now **automatic** in Orchestrator `<on_approval>` tag |
+| G-05 | Bridge sync after API.yaml | Now **automatic** in Orchestrator `<on_approval>` tag |
+| G-06 | `speckit-tasks` never called | Now **mandatory** in Phase 3 — generates `tasks.md` before backlog |
+| G-07 | `speckit-analyze` not run post-tasks | Now runs automatically after tasks.md is generated |
+| G-08 | `speckit-implement` bypassed | Now **mandatory** — all dev personas execute through it |
+| G-09 | `speckit-ship-run` not called | Now auto-triggered after production confirmed |
+| G-10 | `speckit-reconcile-run` missing | Now **mandatory** Phase 8 Step 17 |
+| G-11 | Retro tools not called | Now **mandatory** Phase 8 Steps 18 + 19 |
+
+### ⚠️ Partial Alignments Resolved
+
+| # | Enhancement | Change |
+|---|-------------|--------|
+| P-01 | `speckit-verify-run` optional → **mandatory** | `extensions.yml` + Orchestrator SOP updated |
+| P-02 | `speckit-staff-review-run` optional → **mandatory** | `extensions.yml` + Orchestrator SOP updated |
+| P-03 | `speckit-analyze` dual-track | Now runs both Agency (5 artifacts) + Spec-Kit (3 artifacts) |
+| P-04 | Checklist gate inconsistent | Now enforced before EVERY phase transition |
+
+### 🆕 New Features
+
+| Feature | Description |
+|---------|-------------|
+| **spec-kit-learn v1.1.0** | Auto-installed at Phase 0. `/speckit.learn.diagrams` after every plan. `/speckit.learn.review` after every implementation. `/speckit.learn.clarify` enhanced Q&A. |
+| **Phase 8 (Mandatory Post-Ship)** | Reconcile → Retro → Retrospective-Analyze → Constitution update offer. Cannot be skipped. |
+| **Git Sprint Branching** | `sprint-[X]-[name]` branch auto-created at Step 7 (Sprint Planning). PR auto-created at Phase 7 (Ship). |
+| **Automatic Bridge Sync** | `spec-kit-bridge.ps1` now runs AUTOMATICALLY after every approval via `<on_approval>` XML tag. Not manual. |
+| **Frontend Design Gate** | Formalized in XML: choose Scratch vs Template before any frontend code. Auto-injects design tokens. |
+| **Post-Sprint Deploy Verify** | After every staging and production deploy, you are explicitly asked to verify manually. |
+| **Constitution v2.0** | 7 new laws added to §5: automatic bridge, XML-only instructions, mandatory speckit-implement, mandatory verify, mandatory Phase 8, mandatory spec-kit-learn, git sprint branching. |
+| **SIMULATION_GUIDE.md** | New complete step-by-step playbook for running any project through the framework. |
+
+---
+
+## 🌟 The 9-Phase Workflow
 
 ```
-Phase 0: Init        → /speckit-init       → Orchestrator scaffolds workspace
-Phase 1: Specify     → /speckit.specify    → PM defines strategy, BA writes BRD
-Phase 1b: Clarify    → /speckit-clarify    → BA resolves ambiguities
-Phase 2: Plan        → /speckit.plan       → Architect designs SAD, DBA creates schema
-Phase 2b: Analyze    → /speckit-analyze    → Tech Lead validates cross-artifact consistency
-Phase 3: Tasks       → /speckit.tasks      → PM creates sprint backlog with dependency DAG
-Phase 4: Implement   → /speckit.implement  → QA writes tests first, then FE/BE implement
-Phase 5: Review      → /speckit-commit     → Tech Lead performs 7-Lens audit
-Phase 6: Deploy      → /speckit-deploy     → DevOps builds Docker, CI/CD, deploys to staging
-Phase 7: Ship        → /speckit-ship       → QA regression, handover, production deploy
+Phase 0: Init        → /speckit.init        → Scaffold workspace + install spec-kit-learn
+Phase 1: Specify     → /speckit.specify     → PM strategy + BA BRD + Enhanced Clarify
+Phase 2: Plan        → /speckit.plan        → SAD + DB + API + Diagrams + Consistency Check
+Phase 3: Tasks       → /speckit.tasks       → Git branch + backlog + tasks.md + pre-impl analyze
+Phase 4: Implement   → /speckit.implement   → TDD: QA tests first → FE/BE → learn.md → verify
+Phase 5: Review      → /speckit-commit      → staff-review (5-pass) + 7-Lens audit + QA exec
+Phase 6: Deploy      → /speckit-deploy      → Docker + CI/CD + Trivy + staging + manual verify
+Phase 7: Ship        → /speckit-ship        → Regression + handover + production + PR auto-created
+Phase 8: Post-Ship   → /speckit.reconcile   → Reconcile + Retro + Retrospective + Constitution update
 ```
 
-**Every phase requires your explicit approval before proceeding. No phase can be skipped.**
+**Every phase requires your explicit approval before proceeding. No phase can be skipped.**  
+**Bridge sync runs AUTOMATICALLY after every approval — not a manual step.**
+
+---
+
+## 🗺️ Workflow Diagram
+
+```mermaid
+flowchart TD
+    classDef agency fill:#1e3a5f,stroke:#4a90d9,color:#e8f4ff,font-weight:bold
+    classDef speckit fill:#1a3d2b,stroke:#4caf50,color:#e8f5e9,font-weight:bold
+    classDef bridge fill:#3d2a00,stroke:#ff9800,color:#fff3e0,font-weight:bold
+    classDef gate fill:#4a1942,stroke:#e040fb,color:#fce4ec,font-weight:bold
+    classDef human fill:#1a1a2e,stroke:#e91e63,color:#fce4ec,font-weight:bold
+    classDef learn fill:#1a2a3d,stroke:#00bcd4,color:#e0f7fa,font-weight:bold
+
+    START([🚀 Project Start]) --> PH0
+
+    subgraph PH0["⚙️ PHASE 0 — Init"]
+        P0_AG["🏛️ ORCHESTRATOR\n/speckit.init\nScaffold Artifacts/\nInstall spec-kit-learn"]:::agency
+        P0_SK["🔧 speckit-init +\nspeckit-checklist gate"]:::speckit
+        P0_AG --> P0_SK
+    end
+    PH0 --> PH1
+
+    subgraph PH1["📋 PHASE 1 — Specify & Clarify"]
+        P1a["🏛️ @product-manager\nSTRATEGY.md"]:::agency
+        P1b["🏛️ @business-analyst\nBRD.md (Gherkin, BPMN, NFRs)"]:::agency
+        P1br["🔁 BRIDGE AUTO-SYNC\nArtifacts/ → .specify/"]:::bridge
+        P1c["🔧 /speckit.learn.clarify\nEnhanced Q&A + context"]:::learn
+        P1d["🔧 speckit-checklist gate"]:::speckit
+        P1a --> P1b --> P1br --> P1c --> P1d
+    end
+    P1d --> G1{{"✋ GATE: Specs Approved?"}}:::gate
+    G1 -- REVISION --> P1b
+    G1 -- PASS --> PH2
+
+    subgraph PH2["🏗️ PHASE 2 — Plan & Design"]
+        P2a["🏛️ @principal-architect\nSAD.md + research.md"]:::agency
+        P2b["🏛️ @senior-dba\nSCHEMA.sql + SEED_DATA"]:::agency
+        P2c["🏛️ @backend-dev\nPHASE_X_API.yaml"]:::agency
+        P2br["🔁 BRIDGE AUTO-SYNC"]:::bridge
+        P2learn["🔧 /speckit.learn.diagrams\nComponent + System + Architecture"]:::learn
+        P2e["🔧 speckit-analyze\nDual-track: 5 artifacts"]:::speckit
+        P2a --> P2b --> P2c --> P2br --> P2learn --> P2e
+    end
+    P2e --> G2{{"✋ GATE: Consistency OK?"}}:::gate
+    G2 -- CRITICAL --> P2a
+    G2 -- PASS --> PH3
+
+    subgraph PH3["📅 PHASE 3 — Sprint Planning"]
+        P3git["🏛️ GIT BRANCH\nsprint-X-name created"]:::agency
+        P3a["🏛️ @agile-lead\nMASTER_PLAN.md"]:::agency
+        P3b["🔧 speckit-tasks\ntasks.md with TDD order"]:::speckit
+        P3br["🔁 BRIDGE AUTO-SYNC"]:::bridge
+        P3d["🔧 speckit-analyze\npre-impl consistency"]:::speckit
+        P3git --> P3a --> P3b --> P3br --> P3d
+    end
+    P3d --> G3{{"✋ GATE: Sprint Approved?"}}:::gate
+    G3 -- PASS --> PH4
+
+    subgraph PH4["💻 PHASE 4 — Implement (TDD Loop)"]
+        P4a["🏛️ @qa-engineer FIRST\nTEST_CASES written"]:::agency
+        P4b["🏛️ DESIGN GATE\nScratch OR Upload design"]:::agency
+        P4c["🔧 speckit-implement\n@frontend tasks.md"]:::speckit
+        P4d["🔧 speckit-implement\n@backend tasks.md + MermaidJS"]:::speckit
+        P4learn["🔧 /speckit.learn.review\nlearn.md auto-generated"]:::learn
+        P4e["🔧 speckit-verify-run\nMANDATORY — Constitution §2"]:::speckit
+        P4a --> P4b --> P4c & P4d --> P4learn --> P4e
+    end
+    P4e --> G4{{"✋ GATE: Verify CRITICAL?"}}:::gate
+    G4 -- CRITICAL --> P4c
+    G4 -- PASS --> PH5
+
+    subgraph PH5["🔍 PHASE 5 — Review & Commit"]
+        P5a["🔧 speckit-staff-review-run\nMANDATORY 5-pass"]:::speckit
+        P5b["🏛️ @tech-lead\n7-Lens Audit"]:::agency
+        P5c["🏛️ @qa-engineer\nTest Execution >85%"]:::agency
+        P5a --> P5b --> P5c
+    end
+    P5c --> G5{{"✋ GATE: APPROVED?"}}:::gate
+    G5 -- REQUEST_CHANGES --> P4c
+    G5 -- APPROVED --> COMMIT["📦 git commit + push sprint branch"]
+    COMMIT --> LOOP{{"More tickets?"}}
+    LOOP -- YES --> P4a
+    LOOP -- NO --> PH6
+
+    subgraph PH6["🚀 PHASE 6 — Deploy to Staging"]
+        P6a["🏛️ @devops + speckit-deploy\nDockerfile + CI/CD + Trivy"]:::agency
+        P6b["✋ YOU: Manual Verify\nRun app + check browser"]:::human
+        P6a --> P6b
+    end
+    P6b --> G6{{"✋ GATE: Staging OK?"}}:::gate
+    G6 -- FAIL --> P6a
+    G6 -- PASS --> PH7
+
+    subgraph PH7["🏁 PHASE 7 — Ship"]
+        P7a["🏛️ Full Regression ALL sprints\nBLOCKER if any fails"]:::agency
+        P7b["🏛️ @tech-lead\nHANDOVER + WALKTHROUGH"]:::agency
+        P7c["✋ YOU: Approve Production"]:::human
+        P7d["🏛️ @devops Blue/Green"]:::agency
+        P7e["🔧 speckit-ship-run\nPR → main (auto)"]:::speckit
+        P7f["✋ YOU: Verify Production"]:::human
+        P7a --> P7b --> P7c --> P7d --> P7e --> P7f
+    end
+    P7f --> PH8
+
+    subgraph PH8["🔄 PHASE 8 — Post-Ship MANDATORY"]
+        P8a["🔧 speckit-reconcile-run\nDrift detection + fix"]:::speckit
+        P8br["🔁 BRIDGE AUTO-SYNC"]:::bridge
+        P8b["🔧 speckit-retro-run\nMetrics dashboard"]:::speckit
+        P8c["🔧 speckit-retrospective-analyze\nSpec adherence score"]:::speckit
+        P8d["🔧 speckit-constitution\nOffer update — YOUR approval"]:::speckit
+        P8a --> P8br --> P8b --> P8c --> P8d
+    end
+
+    P8d --> MORE{{"More Sprints?"}}
+    MORE -- YES --> PH3
+    MORE -- NO --> DONE(["✅ Project Complete"])
+```
+
+**Legend**: 🏛️ Agency Persona | 🔧 Spec-Kit Tool | 🔁 Bridge Auto-Sync | ✋ Human Gate | 🔧🔵 spec-kit-learn
 
 ---
 
@@ -136,6 +312,21 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 2. Say: **"Start project"** or **`/speckit-init`**
 3. The Orchestrator detects no artifacts → begins Phase 0
 4. Follow the prompts through each phase
+5. The bridge sync runs **automatically** — you do not need to trigger it manually
+
+---
+
+## 📘 Simulation Guide
+
+> The complete step-by-step playbook for running any project through the 9-phase framework.
+
+📄 **[SIMULATION_GUIDE.md](SIMULATION_GUIDE.md)** — Read this before starting any project. It covers:
+- Every phase with your exact review checklist
+- What each step produces and how to validate it
+- Pass/Fail gates and when to block
+- Emergency recovery commands
+- Complete artifact checklist by phase
+- Quick reference for all commands
 
 ---
 
@@ -174,7 +365,9 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 
 > **⚠️ Step 2.3 is often missed** — The API design is a *separate* step from architecture. The developer persona designs the OpenAPI contract — no implementation code yet.
 
-🔗 **Bridge Sync**: Run bridge script after this phase.
+🔁 **Bridge Sync**: Runs **automatically** after each approval in Phase 2.
+
+> **NEW in v2.0**: After architecture approval, `/speckit.learn.diagrams --all` auto-generates visual architecture docs (component, system, software architecture diagrams).
 
 ### Phase 2b: Analyze (Cross-Artifact Consistency)
 | Step | Command | Persona | Output | Gate |
@@ -186,12 +379,12 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 ### Phase 3: Tasks (Sprint Planning)
 | Step | Command | Persona | Output | Gate |
 |------|---------|---------|--------|------|
+| 3.0 | `"Plan Sprint X"` | Orchestrator | `sprint-X-name` git branch created | Auto |
 | 3.1 | `/speckit.tasks` | Project Manager | `MASTER_PLAN.md` (multi-sprint overview) | ⛔ Verify MVP = Sprint 1 |
-| 3.2 | `"Plan Sprint 1"` | Project Manager | `SPRINT_1_BACKLOG.md` (ticket details) | ⛔ Review dependencies, `[P]` markers |
+| 3.2 | *(auto)* | Project Manager | `SPRINT_[X]_BACKLOG.md` + **`tasks.md`** via speckit-tasks | ⛔ Review deps, `[P]` markers |
+| 3.3 | *(auto)* | speckit-analyze | `CROSS_ARTIFACT_CONSISTENCY.md` (pre-impl) | ⛔ BLOCKER if CRITICAL |
 
-> **Two separate artifacts**: `MASTER_PLAN.md` is the overall roadmap. `SPRINT_[X]_BACKLOG.md` is the per-sprint ticket list.
-
-🔗 **Bridge Sync + Optional**: `/speckit.taskstoissues` to push to GitHub Issues.
+> **NEW in v2.0**: `speckit-tasks` is now invoked to generate `tasks.md` — `speckit-implement` reads it for TDD order enforcement. Git branch auto-created at sprint start.
 
 ### Phase 4: Implement (TDD Loop — Per Ticket)
 
@@ -199,22 +392,25 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 
 | Step | Command | Persona | Output |
 |------|---------|---------|--------|
-| 4.1 | `/speckit.implement [TicketID]` | QA Engineer | `TEST_CASES_[TicketID].md` (tests written FIRST) |
-| 4.2 | *(FE tickets only)* | Frontend Dev | ⛔ "Provide design reference (image/link)" |
-| 4.3 | *(auto)* | Frontend/Backend Dev | Source code implementation |
-| 4.4 | *(auto)* | QA Engineer | Test execution: PASS/FAIL |
+| 4.1 | `/speckit.implement [TicketID]` | QA Engineer | `TEST_CASES_[TicketID].md` (tests written **FIRST** — mandatory) |
+| 4.2 | *(FE tickets only)* | Frontend Dev | ⛔ "Scratch OR upload design reference" |
+| 4.3 | *(auto via speckit-implement)* | Frontend Dev | Source code — reads `tasks.md`, marks `[X]` |
+| 4.4 | *(auto via speckit-implement)* | Backend Dev | Source code + MermaidJS flowchart + sequence diagram |
+| 4.5 | *(auto — after_implement hook)* | spec-kit-learn | `learn.md` — educational guide auto-generated |
+| 4.6 | *(auto — mandatory)* | speckit-verify-run | Verification report — CRITICAL blocks Phase 5 |
 
-> **Tests are written BEFORE code** (Shift-Left TDD). Step 4.2 is a human gate for frontend tickets.
+> **NEW in v2.0**: `speckit-implement` is now mandatory — agents execute through it, not free-form. `speckit-verify-run` is now mandatory (not optional). `learn.md` is auto-generated after every ticket.
 
 ### Phase 5: Review (Code Quality Gate — Per Ticket)
 | Step | Command | Persona | Output | Decision |
 |------|---------|---------|--------|----------|
-| 5.1 | `/speckit-commit` | Tech Lead | `REVIEW_[TicketID].md` (7-Lens audit) | **APPROVED** → Commit / **REQUEST_CHANGES** → Back to Phase 4 |
-| 5.2 | *(auto)* | QA Engineer | Re-executes test cases | PASS → Continue / FAIL → Back to Phase 4 |
+| 5.1 | *(auto — mandatory)* | speckit-staff-review-run | `reviews/review-[timestamp].md` (5-pass) | Blocker findings → back to Phase 4 |
+| 5.2 | `/speckit-commit` | Tech Lead | `REVIEW_[TicketID].md` (7-Lens audit) | **APPROVED** → Commit / **REQUEST_CHANGES** → Phase 4 |
+| 5.3 | *(auto)* | QA Engineer | Test execution > 85% goal | PASS → Continue / FAIL → Phase 4 |
 
-**7-Lens Review**: Architecture · Security · Resilience · Observability · Performance · Test Quality · Maintainability
+**Review**: 5-pass staff review FIRST, then 7-Lens: Architecture · Security · Resilience · Observability · Performance · Test Quality · Maintainability
 
-🔗 **Optional**: `/speckit.verify.run` (quality gate) · `/speckit.staff-review.run` (staff-level review)
+> **NEW in v2.0**: `speckit-staff-review-run` is now **mandatory** (was optional). Must run before Tech Lead 7-Lens.
 
 ### Phase 6: Deploy (Staging)
 | Step | Command | Persona | Output |
@@ -222,17 +418,31 @@ cp -r /path/to/super-ai-agency-framework/.agent/workflows .agent/workflows/
 | 6.1 | `/speckit-deploy` | DevOps Engineer | `Dockerfile`, `docker-compose.yml`, CI/CD pipeline |
 | 6.2 | *(auto)* | DevOps Engineer | Trivy scan — ⛔ **BLOCKER**: 0 Critical/High CVEs |
 | 6.3 | *(auto)* | DevOps Engineer | `DEPLOYMENT_LOG.md` |
+| 6.4 | **YOU (manual)** | — | Run app + verify features work in browser |
+
+> **NEW in v2.0**: You are explicitly asked to verify staging manually before proceeding to Phase 7.
 
 ### Phase 7: Ship (Production)
 | Step | Command | Persona | Output | Gate |
 |------|---------|---------|--------|------|
 | 7.1 | `/speckit-ship` | QA Engineer | `REGRESSION_SPRINT_[X].md` | ⛔ **BLOCKER**: ANY test fails → back to Phase 4 |
-| 7.2 | *(auto)* | Tech Lead | `SPRINT_[X]_HANDOVER.md` + CHANGELOG | ⛔ Review handover doc |
-| 7.3 | *(user approval)* | — | — | ⛔ "Approve production deployment?" |
-| 7.4 | *(auto)* | DevOps Engineer | Production deploy (Blue/Green) | Monitor error rates |
-| 7.5 | *(auto)* | Tech Lead | `SPRINT_[X]_WALKTHROUGH.md` + `SPRINT_[X]_QUALITY_POLISH_VERIFICATION.md` | Save sprint completion artifacts |
+| 7.2 | *(auto)* | Tech Lead | `SPRINT_[X]_HANDOVER.md` + `WALKTHROUGH.md` + `QUALITY_POLISH_VERIFICATION.md` + CHANGELOG | ⛔ Review handover doc |
+| 7.3 | **YOU** | — | — | ⛔ "Approve production deployment?" |
+| 7.4 | *(auto)* | DevOps Engineer | Production deploy (Blue/Green or Canary) | Monitor error rates 15 min |
+| 7.5 | *(auto)* | speckit-ship-run | PR created → main + changelog auto-generated | |
+| 7.6 | **YOU (manual)** | — | — | ⛔ Verify production features work |
 
-🔗 **Optional**: `/speckit.reconcile.run` · `/speckit.retrospective.analyze` · `/speckit.retro.run` · `/speckit.ship.run`
+> **NEW in v2.0**: `speckit-ship-run` is now **mandatory** (was optional) — auto-creates PR with full artifact traceability.
+
+### Phase 8: Post-Ship (NEW — MANDATORY)
+| Step | Tool | Output |
+|------|------|--------|
+| 8.1 | `speckit-reconcile-run` | Drift detection + surgical spec/plan/tasks fixes |
+| 8.2 | `speckit-retro-run` | Metrics retrospective — accuracy scores, QA rate, improvement suggestions |
+| 8.3 | `speckit-retrospective-analyze` | Quantitative spec adherence scoring |
+| 8.4 | `speckit-constitution` | Constitution update (requires YOUR explicit approval) |
+
+> **NEW in v2.0**: Phase 8 is now **mandatory** — it's the learning loop that improves every future sprint.
 
 ### Multi-Sprint Loop
 
@@ -271,19 +481,22 @@ After Ship, if `MASTER_PLAN.md` has more sprints:
 | 12 | **DevOps Engineer** | Docker, CI/CD, Trivy | `Dockerfile`, pipelines |
 | 13 | **Orchestrator (CEO)** | Phase Management | XML Protocol Enforcement |
 
-### 9 Spec-Kit Skills (Auto-installed)
+### 12 Spec-Kit Skills (Auto-installed + spec-kit-learn)
 
-| Skill | Command | Purpose |
-|-------|---------|---------|
-| `speckit-constitution` | `/speckit.constitution` | Create project governing principles |
-| `speckit-specify` | `/speckit.specify` | Generate feature specification |
-| `speckit-clarify` | `/speckit.clarify` | Structured ambiguity resolution |
-| `speckit-plan` | `/speckit.plan` | Technical implementation plan |
-| `speckit-analyze` | `/speckit.analyze` | Cross-artifact consistency check |
-| `speckit-tasks` | `/speckit.tasks` | Task breakdown with dependencies |
-| `speckit-implement` | `/speckit.implement` | Execute implementation |
-| `speckit-checklist` | `/speckit.checklist` | Quality validation checklist |
-| `speckit-taskstoissues` | `/speckit.taskstoissues` | Convert tasks to GitHub Issues |
+| Skill | Command | Purpose | Status |
+|-------|---------|---------|--------|
+| `speckit-constitution` | `/speckit.constitution` | Create project governing principles | Core |
+| `speckit-specify` | `/speckit.specify` | Generate feature specification | Core |
+| `speckit-clarify` | `/speckit.clarify` | Structured ambiguity resolution | Core |
+| `speckit-plan` | `/speckit.plan` | Technical implementation plan | Core |
+| `speckit-analyze` | `/speckit.analyze` | Cross-artifact consistency check (5 artifacts) | Core |
+| `speckit-tasks` | `/speckit.tasks` | Task breakdown with TDD ordering | **Mandatory** |
+| `speckit-implement` | `/speckit.implement` | Execute implementation (all dev personas use this) | **Mandatory** |
+| `speckit-checklist` | `/speckit.checklist` | Quality validation checklist | Core |
+| `speckit-taskstoissues` | `/speckit.taskstoissues` | Convert tasks to GitHub Issues | Optional |
+| `speckit-learn-review` | `/speckit.learn.review` | Educational learn.md after implementation | **Auto** |
+| `speckit-learn-diagrams` | `/speckit.learn.diagrams` | Visual architecture diagrams after plan | **Auto** |
+| `speckit-learn-clarify` | `/speckit.learn.clarify` | Enhanced clarification with context | **Auto** |
 
 ---
 
@@ -304,12 +517,23 @@ After Ship, if `MASTER_PLAN.md` has more sprints:
 | `/speckit-deploy` | 6 | DevOps: Docker → CI/CD → Staging |
 | `/speckit-ship` | 7 | Regression → Handover → Production |
 
+### spec-kit-learn Commands (Auto-triggered)
+
+| Command | Trigger | Purpose |
+|---------|---------|---------|----------|
+| `/speckit.learn.diagrams` | After `/speckit.plan` | Visual architecture diagrams (Component, System, Software) |
+| `/speckit.learn.review` | After `/speckit.implement` | Educational learn.md — Key Decisions, Concepts, Glossary |
+| `/speckit.learn.clarify` | During `/speckit-clarify` | Enhanced Q&A with Why + Pros/Cons + Recommended option |
+
 ### Enhancement Commands
 
 | Command | Purpose |
 |---------|---------|
 | `/speckit.checklist` | Generate quality validation checklist |
 | `/speckit.taskstoissues` | Push tasks to GitHub Issues |
+| `/speckit.reconcile.run` | Post-ship drift reconciliation (Phase 8) |
+| `/speckit.retro.run` | Sprint retrospective with metrics (Phase 8) |
+| `/speckit.retrospective.analyze` | Spec adherence scoring (Phase 8) |
 
 ---
 
@@ -388,16 +612,19 @@ The Orchestrator injects a `<constitution_check>` into every XML protocol to enf
 
 ## 🧩 Spec-Kit Extensions
 
-6 community extensions pre-installed:
+7 extensions — all mandatory (no longer optional):
 
-| # | Extension | Purpose | Command | Category |
-|---|-----------|---------|---------|----------|
-| 1 | **staff-review** | Staff-engineer code review against spec | `/speckit.staff-review.run` | Code Quality |
-| 2 | **ship** | Release pipeline: checks, changelog, PR | `/speckit.ship.run` | Release |
-| 3 | **verify** | Post-implementation quality gate | `/speckit.verify.run` | Verification |
-| 4 | **reconcile** | Detect & fix spec drift after implementation | `/speckit.reconcile.run` | Drift Detection |
-| 5 | **retrospective** | Spec adherence scoring & drift analysis | `/speckit.retrospective.analyze` | Post-Mortem |
-| 6 | **retro** | Sprint retro with metrics & improvement plan | `/speckit.retro.run` | Post-Mortem |
+| # | Extension | Purpose | Command | Phase | Status |
+|---|-----------|---------|---------|-------|--------|
+| 1 | **learn** | Visual diagrams + educational guides + enhanced clarify | `/speckit.learn.*` | 1,2,4 | **Mandatory + Auto** |
+| 2 | **staff-review** | 5-pass staff-engineer code review against spec | `/speckit.staff-review.run` | 5 | **Mandatory** |
+| 3 | **verify** | Post-implementation quality gate | `/speckit.verify.run` | 4 | **Mandatory** |
+| 4 | **ship** | Release pipeline: pre-flight, changelog, PR creation | `/speckit.ship.run` | 7 | **Mandatory** |
+| 5 | **reconcile** | Detect & surgically fix spec drift | `/speckit.reconcile.run` | 8 | **Mandatory** |
+| 6 | **retrospective** | Quantitative spec adherence scoring | `/speckit.retrospective.analyze` | 8 | **Mandatory** |
+| 7 | **retro** | Sprint retro with metrics dashboard | `/speckit.retro.run` | 8 | **Mandatory** |
+
+> **v2.0 Change**: All extensions changed from `optional: true` → `optional: false` in `extensions.yml`. They are now enforced by the Orchestrator XML protocol.
 
 Install additional extensions:
 ```bash
@@ -415,32 +642,49 @@ specify extension list
 
 ## 📡 Extension Integration Guide
 
-Extensions are **not auto-triggered** by the Orchestrator — call them manually at these points:
+> **v2.0 Change**: Extensions are now **auto-triggered** by the Orchestrator at specific phase gates — not manual.
 
-| Extension | When to Call | Phase |
-|-----------|-------------|-------|
-| `/speckit.verify.run` | After Phase 4 (Implement), before Phase 5 (Review) | Between Implement → Review |
-| `/speckit.staff-review.run` | After Phase 5, for critical or high-risk tickets | During Review |
-| `/speckit.reconcile.run` | After Phase 7, if implementation diverged from spec | After Ship |
-| `/speckit.retrospective.analyze` | After each sprint ships, for spec adherence scoring | After Ship |
-| `/speckit.retro.run` | End of each sprint cycle, for improvement planning | After Ship |
-| `/speckit.ship.run` | To automate PR creation and changelog generation | During Ship |
+| Extension | Trigger | Phase | Mandatory |
+|-----------|---------|-------|-----------|
+| `/speckit.learn.diagrams` | Auto after `/speckit.plan` approved | 2 | ✅ Yes |
+| `/speckit.learn.clarify` | Auto during `/speckit-clarify` | 1b | ✅ Yes |
+| `/speckit.learn.review` | Auto after every `/speckit.implement` | 4 | ✅ Yes |
+| `/speckit.verify.run` | Auto after implementation, before Phase 5 | 4 end | ✅ Yes |
+| `/speckit.staff-review.run` | Auto first step of `/speckit-commit` | 5 | ✅ Yes |
+| `/speckit.ship.run` | Auto after production deployment confirmed | 7 end | ✅ Yes |
+| `/speckit.reconcile.run` | Auto start of Phase 8 | 8 | ✅ Yes |
+| `/speckit.retro.run` | Auto Phase 8 Step 2 | 8 | ✅ Yes |
+| `/speckit.retrospective.analyze` | Auto Phase 8 Step 3 | 8 | ✅ Yes |
+| `/speckit.constitution` | Offered by Orchestrator — YOUR approval required | 8 end | Approval only |
 
 ---
 
 ## 🔗 Bridge Script
 
-The `spec-kit-bridge.ps1` script syncs `Artifacts/` (Agency source of truth) to `.specify/specs/` (Spec-Kit CLI compatibility).
+The `spec-kit-bridge.ps1` script syncs `Artifacts/` (Agency source of truth) → `.specify/specs/` (Spec-Kit CLI compatibility).
 
-**When to run**: After Phase 1b (Clarify), Phase 2 (Plan), and Phase 3 (Tasks).
+> **v2.0 Change**: The bridge now runs **AUTOMATICALLY** after every approval via the `<on_approval>` XML tag in the Orchestrator SOP. You do NOT need to run it manually.
 
+**Automatic sync points** (all now automatic):
+- After STRATEGY.md approved → `spec.md` (overwrite)
+- After BRD.md approved → `spec.md` (append)
+- After Clarifications recorded → `spec.md` (append)
+- After SAD.md approved → `plan.md`
+- After SCHEMA.sql approved → `schema.sql` + `data-model.md`
+- After API.yaml approved → `contracts/`
+- After SPRINT_BACKLOG approved → `tasks.md`
+- After Phase 8 reconcile → `Artifacts/` (reverse sync)
+
+**Manual use** (if needed for debugging):
 ```powershell
 # Dry run (preview what would be synced)
-.\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature" -DryRun
+.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature" -DryRun
 
 # Live sync
-.\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature"
+.agent\scripts\spec-kit-bridge.ps1 -FeatureName "001-my-feature"
 ```
+
+**If `bridge_sync_status` shows STALE** in the status block, say: *"Run bridge sync for feature [name]"*.
 
 ---
 
@@ -598,6 +842,12 @@ This framework works with any AI coding agent that supports Spec-Kit:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+**v2.0** (2026-04-10): Automatic bridge sync, mandatory spec-kit-learn, mandatory Phase 8 post-ship, mandatory speckit-implement and speckit-verify-run, git sprint branching, Constitution v2.0, 9-phase workflow, SIMULATION_GUIDE.md.
+
 ## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
@@ -606,3 +856,4 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 - [GitHub Spec-Kit](https://github.com/github/spec-kit) — The spec-driven development toolkit this framework extends
 - [John Lam](https://github.com/jflam) — Research behind Spec-Driven Development
+- [imviancagrace/spec-kit-learn](https://github.com/imviancagrace/spec-kit-learn) — Educational guides extension integrated in v2.0

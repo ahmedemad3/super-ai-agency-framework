@@ -1,6 +1,8 @@
 # Project Constitution — Governing Principles
+`Version 2.0 — Updated: 2026-04-10`
 
 > This document is the **supreme law** of the project. Every AI agent MUST read and comply with this document before producing any output. Violations trigger an immediate protocol reset.
+> **Integration**: Agency Orchestrator governs. Spec-Kit tools execute inside Agency phases. All agent instructions MUST be in XML `<protocol_enforcement>` tags.
 
 ---
 
@@ -83,6 +85,13 @@
 - Each artifact MUST be saved to its designated path in `Artifacts/` before proceeding.
 - The agent MUST end each phase with a handoff message to `@team-orchestrator`.
 - **Sprint Completion**: After each sprint, a **Resolved Walkthrough** (`SPRINT_X_WALKTHROUGH.md`) MUST be saved in `Artifacts/05_Planning/sprint_x/` and a **Quality & Verification Report** (`SPRINT_X_QUALITY_POLISH_VERIFICATION.md`) MUST be created in `Artifacts/06_Quality_Reports/`.
+- **Bridge Sync — AUTOMATIC**: After EVERY User Approval, the agent MUST automatically run `.agent/scripts/spec-kit-bridge.ps1 -FeatureName [feature]` BEFORE starting the next phase. This is NON-NEGOTIABLE and NOT a user-manual step.
+- **XML-Only Agent Instructions**: ALL agent invocations MUST use `<protocol_enforcement>` XML tags. Natural language agent instructions are a PROTOCOL VIOLATION.
+- **speckit-implement is Mandatory**: No developer persona writes code outside of `speckit-implement`. Free-form code generation bypasses task tracking and is a PROTOCOL VIOLATION.
+- **speckit-verify-run is Mandatory**: MUST run after all sprint implementation, BEFORE Phase 5 (Review). CRITICAL findings BLOCK Phase 5.
+- **Phase 8 is Mandatory**: After every production ship, run reconcile → retro → retrospective-analyze → offer constitution update. No exceptions.
+- **spec-kit-learn is Mandatory**: Run `/speckit.learn.diagrams` after every `/speckit.plan`. Run `/speckit.learn.review` after every `/speckit.implement`.
+- **Git Sprint Branching**: Every sprint MUST have its own `sprint-[X]-[short-name]` feature branch. Created at sprint start, merged via PR at sprint ship.
 
 ---
 
