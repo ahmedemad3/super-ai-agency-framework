@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.0.0] - 2026-04-10
+
+### Changed
+- **Gated Workflow Upgraded**: Upgraded from 8-phase to 9-phase workflow (added mandatory Phase 8: Post-Ship learning loop).
+- **Mandatory Bridge Sync**: The `spec-kit-bridge.ps1` script now runs *automatically* after every phase gate approval via XML tags.
+- **Mandatory Spec-Kit Extensions**: Changed `verify`, `staff-review`, `ship`, `reconcile`, `retrospective`, and `retro` from optional to mandatory in `extensions.yml`.
+- **speckit-implement Enforcement**: All development personas must now execute through `speckit-implement`, enforcing `tasks.md` order, TDD, and `[P]` parallel markers.
+- **Git Sprint Branching**: Enforced git feature branch creation (`sprint-[X]-[name]`) at the start of every sprint.
+- **Constitution v2.0**: Added 7 new laws to §5 Phase Gate Rules (automatic bridge, XML-only instructions, mandatory verify, mandatory Phase 8, etc.).
+
+### Added
+- **spec-kit-learn v1.1.0 Integration**: Added educational guides generation (`learn.md`), Mermaid architecture diagrams, and enhanced clarifications.
+- **Simulation Guide**: Added `SIMULATION_GUIDE.md` playbook detailing step-by-step review checklists, pass/fail gates, and artifact checklist.
+- **Verification Gates**: Added mandatory User Verifications after Staging and Production deployments.
+- **Dual-Track Analysis**: Phase 2b now validates across both Agency artifacts and Spec-Kit artifacts.
+- **Automated PRs**: `speckit.ship.run` is now triggered automatically for production handovers.
+
 ## [1.0.0] - 2026-04-02
 
 ### Added

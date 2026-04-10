@@ -28,13 +28,13 @@ Thank you for your interest in contributing! Here's how you can help.
 
 ### Updating the Constitution
 1. Edit `Artifacts/00_Governance/CONSTITUTION.md`
-2. Run the bridge script to sync: `.\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "governance-update"`
+2. The Orchestrator will automatically run the bridge script on your next approval gate, or you can manually sync: `.\.agent\scripts\spec-kit-bridge.ps1 -FeatureName "governance-update"`
 3. Ensure all existing protocols still comply
 
 ## Code Style
 - Markdown files: Use ATX-style headers (`#` not `===`)
 - YAML frontmatter: Required for all skills and workflows
-- XML protocols: Always include `<constitution_check>` tags
+- XML protocols: Always include `<constitution_check>` and `<bridge_sync>` tags
 - File naming: Use `UPPER_CASE.md` for artifacts, `lowercase.md` for Spec-Kit files
 
 ## Pull Request Process
